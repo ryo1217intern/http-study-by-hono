@@ -1,7 +1,14 @@
-import { Hono } from 'hono'
+import { Hono } from "hono";
 
-const app = new Hono()
+const app = new Hono();
 
-app.get('/', (c) => c.text('Hello Hono!'))
+app.get("/", () => {
+  return new Response("Hello! world! by hono", {
+    status: 200,
+    headers: {
+      "Content-Type": "text/plain",
+    },
+  });
+});
 
-export default app
+app.fire();
