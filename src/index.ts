@@ -1,14 +1,7 @@
 import { Hono } from "hono";
+import { books } from "./api/api"
 
 const app = new Hono();
-
-app.get("/", () => {
-  return new Response("Hello! world! by hono", {
-    status: 200,
-    headers: {
-      "Content-Type": "text/plain",
-    },
-  });
-});
+app.route("/api/books", books);
 
 app.fire();
