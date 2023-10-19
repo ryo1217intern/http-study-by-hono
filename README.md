@@ -152,9 +152,49 @@ app.fire();
 
 実際にlocalhostで指定されたポート番号と/api/booksを入力すると先ほどレスポンスとして設定してjsonが画面に表示される.
 
+※追記
 
+HTTPメソッドによってファイルを分けたかったため,次のように変更しました.
 
+`src/souce.ts`
+```JavaScript
+let bookList = [
+  { id: 1, title: "数学の教科書1", completed: false },
+  { id: 2, title: "数学の教科書2", completed: false },
+  { id: 3, title: "数学の教科書3", completed: false },
+  { id: 4, title: "数学の教科書4", completed: false },
+  { id: 5, title: "数学の教科書5", completed: false },
+  { id: 6, title: "数学の教科書6", completed: false },
+  { id: 7, title: "数学の教科書7", completed: false },
+  { id: 8, title: "数学の教科書8", completed: false },
+  { id: 9, title: "数学の教科書9", completed: false },
+  { id: 10, title: "数学の教科書10", completed: false },
+];
 
+export {bookList};
+```
+
+`src/index.ts`
+```JavaScript
+import { Hono } from "hono";
+import { getBooks } from "./apis/getSample"
+
+const app = new Hono();
+app.route("/api/books", getBooks);
+
+app.fire();
+```
+
+`src/apis/getSample.ts`
+```JavaScript
+import { Hono } from "hono";
+import { bookList } from "../souce"
+
+const getBooks = new Hono();
+getBooks.get("/", (c) => c.json(bookList));
+
+export { getBooks };
+```
 
 
 

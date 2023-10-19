@@ -1,5 +1,3 @@
-import { Hono } from "hono";
-
 let bookList = [
   { id: 1, title: "数学の教科書1", completed: false },
   { id: 2, title: "数学の教科書2", completed: false },
@@ -13,7 +11,4 @@ let bookList = [
   { id: 10, title: "数学の教科書10", completed: false },
 ];
 
-const books = new Hono();
-books.get("/", (c) => c.json(bookList));
-
-export { books };
+export {bookList};
