@@ -34,3 +34,16 @@ npm run dev
 実行するとかっこいい緑色の文字でlocal環境でサーバーが起動しているはず.
 
 ここまでできたら準備完了.
+
+※追記
+
+もしかしたらこれだけだとtsconfig.jsonが赤唐辛子になっているかもしれない.
+
+原因としては@cloudflare/workes-typesが入っていないからだと考えられる.
+
+そのためこのタイプスをnpm iしよう.
+
+```
+npm i @cloudflare/workers-types
+```
+
